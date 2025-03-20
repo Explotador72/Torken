@@ -1,0 +1,5 @@
+discord
+googletrans
+pyshorteners
+yt_dlp
+pytz
