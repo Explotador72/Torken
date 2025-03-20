@@ -3,3 +3,4 @@ googletrans
 pyshorteners
 yt_dlp
 pytz
+paywright
