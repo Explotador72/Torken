@@ -1,18 +1,19 @@
 import os
+import Func.MusicDownloader
 import discord
 import DefCommands
-import Func.MusicT
 import Func.RecT
 import Func.EpicGames
 import asyncio
 import subprocess
+from Func.MusicDownloader import spoter, MusicT
 from typing import Optional
 from Comp.Ids import BLog
 from discord.ext import commands
 from discord import app_commands
-from Comp.Ids import CMusic, CBot, CShoes, CInsta, CDiscord
+from Comp.Ids import CMusic, CBot, CShoes, CInsta, CDiscord, Token
 
-my_secret = 'MTA4NTk0NzY5MzE2MDk5NjkzNg.GifoDG.thOa9yi-XVL606NhMcgtFvXHErF-uvGRW--WHY'#os.environ['TOKEN']
+my_secret = Token
 Id = CDiscord
 
 #Define base
@@ -102,7 +103,17 @@ async def change_discord(ctx, id: int):
               guild=Guild)
 async def DMusic(ctx, url: str):
   if ctx.channel == bot.get_channel(CMusic):
-    await Func.MusicT.music(ctx, url, bot)
+    await MusicT.music(ctx, url, bot)
+  else:
+    await Inc_channel(ctx)
+
+
+@tree.command(name="get_playlist",
+              description="Download a spotify playlist",
+              guild=Guild)
+async def DSpotify(ctx, url: str):
+  if ctx.channel == bot.get_channel(CMusic):
+    await spoter.set_up(ctx, url, bot)
   else:
     await Inc_channel(ctx)
 
@@ -112,7 +123,7 @@ async def DMusic(ctx, url: str):
               description="Generate sound effect",
               guild=Guild)
 async def Def(ctx):
-  await Func.MusicT.ef(ctx, bot)
+  await MusicT.ef(ctx, bot)
 
 
 
@@ -120,7 +131,7 @@ async def Def(ctx):
               description="Disconnect the bot from the voice channel",
               guild=Guild)
 async def Def_voice_disconnect(ctx):
-  await Func.MusicT.voice_disconnect(ctx, bot)
+  await MusicT.voice_disconnect(ctx, bot)
 
 
 
@@ -141,7 +152,7 @@ async def Post_instaT(ctx, prompt: str, custom_hashtaghs: str, url_imgs: str):
 @tree.command(name="play", description="Play a song", guild=Guild)
 async def platT(ctx, url: str):
   if ctx.channel == bot.get_channel(CMusic):
-    await Func.MusicT.play(ctx, url, bot)
+    await Func.MusicDownloader.MusicT.play(ctx, url, bot)
   else:
     await Inc_channel(ctx)
 
