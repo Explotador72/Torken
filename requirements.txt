@@ -6,3 +6,4 @@ pytz
 playwright
 spotipy
 ffmpeg
+flask
