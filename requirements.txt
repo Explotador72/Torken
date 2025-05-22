@@ -4,3 +4,5 @@ pyshorteners
 yt_dlp
 pytz
 playwright
+spotipy
+ffmpeg
