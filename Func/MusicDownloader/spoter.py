@@ -6,14 +6,15 @@ from concurrent.futures import ThreadPoolExecutor
 from yt_dlp import YoutubeDL
 from urllib.parse import quote
 from flask import request
+from Commands import Client_secret, Refresh_token
 
-
+print(os.getenv('CLIENT_SECRET'))
 # 1. Credenciales de tu app de Spotify
 CLIENT_ID = '382cbaacee964b1f9bafdf14ab86f549'
-CLIENT_SECRET = 'dd3837f246be4b25bda112828d5518a5'
+CLIENT_SECRET = Client_secret
 REDIRECT_URI = 'https://www.google.com/?hl=es'  # Debe coincidir con el de tu app en Spotify
 SCOPE = 'playlist-read-private playlist-read-collaborative'
-REFRESH_TOKEN = 'AQA0uEKy1yOhrFvzEhHWiNpGWIBfCkash3VrRQSNgky7jJqojwSn-hZRnBRMPOtLiu7FZUJtbYuRdAH5CLDEcF01ZDMu1R5a74QqdzzUmRwA7N2s4yzfFamJVz-L6DqEBws'
+REFRESH_TOKEN = Refresh_token
 
 
 # 2. Autenticación usando Spotipy y OAuth

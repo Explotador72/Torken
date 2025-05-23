@@ -3,7 +3,7 @@ import Commands
 import threading
 
 # Inicia el bot de Discord en un hilo de ejecución separado
-bot_thread = threading.Thread(target=Commands.bot.run, args=(Commands.my_secret,))
+bot_thread = threading.Thread(target=Commands.bot.run, args=(Commands.TOKEN,))
 bot_thread.start()
 
 # Inicia el servidor web en un hilo de ejecución separado

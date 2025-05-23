@@ -1,4 +1,11 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+Client_secret = os.getenv('CLIENT_SECRET')
+Refresh_token = os.getenv('REFRESH_TOKEN')
+TOKEN = os.getenv('Token')
+print(os.getenv('Token'))
+
 import Func.MusicDownloader
 import discord
 import DefCommands
@@ -11,9 +18,7 @@ from typing import Optional
 from Comp.Ids import BLog
 from discord.ext import commands
 from discord import app_commands
-from Comp.Ids import CMusic, CBot, CShoes, CInsta, CDiscord, Token
-
-my_secret = Token
+from Comp.Ids import CMusic, CBot, CShoes, CInsta, CDiscord
 Id = CDiscord
 
 #Define base
@@ -288,4 +293,4 @@ async def delet_messages(ctx, number: int):
 
 
 if __name__ == '__main__':
-  bot.run(my_secret)
+  bot.run(TOKEN)
