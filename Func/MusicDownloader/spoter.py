@@ -122,7 +122,7 @@ def get_playlist(playlist_url):
 
 async def upload_file(file_path, ctx):
     app = Flask(__name__)
-    port = 5000
+    port = 7987
 
     result = {
         'public_url': None, 'download_event': asyncio.Event(), 'shutdown_event': asyncio.Event()
@@ -130,7 +130,7 @@ async def upload_file(file_path, ctx):
 
     @app.route('/download')
     def download_file():
-        response = make_response(send_file('E:\Documentos\Code\Torken\Func\MusicDownloader\spoter.py', as_attachment=True))
+        response = make_response(send_file(file_path, as_attachment=True))
         response.headers["ngrok-skip-browser-warning"] = "true"
         return response
 
